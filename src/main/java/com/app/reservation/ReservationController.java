@@ -12,21 +12,16 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
-import com.app.reservation.repository.Reservation;
-import com.app.reservation.service.ReservationService;
-import com.app.reservation.service.ReservationServiceImpl;
+import com.app.reservation.domain.entity.Reservation;
 
 
 @Controller
-@RequestMapping("reservations")
+@RequestMapping("/reservations")
 public class ReservationController {
-	
-
 	// サービスを持ってくる
 	@Autowired
-	private ReservationServiceImpl reservationService;
+	private ReservationService reservationService;
 
 	@GetMapping("/{id}") // idを変数として情報を持ってくる
 	public Reservation getReservation(@PathVariable int id) {
